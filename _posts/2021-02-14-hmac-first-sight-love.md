@@ -8,7 +8,6 @@ thumbnail: jekyll
 tags:
  - security
  - web
- - python
  - cryptography
 ---
 
