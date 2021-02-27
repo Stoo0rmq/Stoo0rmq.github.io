@@ -24,7 +24,7 @@ Do any of these problems ring a bell in your head? Do you realise that these pro
 # The Wax
 If we particularly thought about the central ideas of the previously mentioned problems, we could easily linked them with our habitual technical slang: it is clear that the issues approached are **authentication** (who are you?) and **integrity** (is this what I should have received?) , core concepts that every sec person should dominate. 
 Bringing back the past, I feel forced to bring you the most interesting example of a solution that *potentially* solved our two problems: Seal Wax Stamps.
-![]()
+![Wax stamp on an envelope](https://github.com/Stoo0rmq/Stoo0rmq.github.io/blob/master/images/hmac-love/wax-seal-letter_0.jpg?raw=true)
 
 Seal Wax Stamps provided a  valid (at that time) method of authentication, as the stamps contained signs or figures in an unique way in order to represent the sign of a person or a family. The interested person would put his letter within an envelope and would subsequently seal it using the wax protecting the integrity of the letter. Throught this operation, the receiver could be certain of the authenticity of the letter as well as the integrity (if the receiver had found the seal broken, the integrity would then have been compromised and if the stamp was a generic, the receiver could not be either sure about the authorship of the letter.
 
@@ -48,21 +48,9 @@ From a mathematical perspective, in order to build a secure HMAC the following i
 - A Hash function H()
 - Two strings, each of those is a different padding string. 
 
-> NOTE: Padding is required in hash functions as they divide the data to be hashed in different blocks of fixed size. In order to keep the consistency it is necessary to "fill" the empty spaces. This is done using padding.
+> NOTE Padding is required in hash functions as they divide the data to be hashed in different blocks of fixed size. In order to keep the consistency it is necessary to "fill" the empty spaces. This is done using padding.
 
-
-$$ \zeta(s) = \frac{1}{\Gamma(s)} \int \limits_0^\infty x^{s-1} \sum_{n=1}^\infty e^{-nx} \mathrm{d}x = \frac{1}{\Gamma(s)} \int \limits_0^\infty \frac{x^{s-1}}{e^x - 1} \mathrm{d}x $$
-
-HEY HEY YO
-
-INTRODUCE HERE FORMULA
-$$ S -> Secret Key securely obtained : "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh" $$
-$$ M -> Message: "See you at 5" $$
-$$ H() -> Hash function , as SHA256 $$
-$$ P1 -> First padding $$
-$$ P2 -> Second padding $$
-$$ HMAC_VALUE = H(P2 ⊕ H((P1 ⊕ S) | M))) $$
-$$ HMAC_VALUE = SHA256(P2 ⊕ SHA256((P1 ⊕ "See you at 5") | "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh" ))) $$
+![](https://raw.githubusercontent.com/Stoo0rmq/Stoo0rmq.github.io/master/images/hmac-love/hmac.png)
 
 As it has been seen, the theoretical implementation is not rocket science. HMAC provides an easy and trustful way of validating authentication and integrity.
 
