@@ -32,19 +32,14 @@ It is very interesting to observe how security paradigms have evolved, in partic
 
 # HMAC the new wax stamp
 
-MAC or Message Authentication Code is a small code which let us verify the authenticity of a message, in other words is a way of getting a proof of the authenticity and integrity of a message (like our Wax Stamp) . HMAC was the great result of implementing authentication codes using hash functions as MD5 or SHA1.
-
-
-
-
+MAC or Message Authentication Code is a small code which let us verify a message, is a way of getting a proof of the authenticity and integrity of a message (like our Wax Stamp). HMAC was the great result of implementing authentication codes using hash functions as MD5 or SHA1.
 
 The idea after HMAC was to provide a robust integrity/authorization mechanisms as it entirely relies in the same security principles found on a regular hash function. A regular use case would look as it follows:
 - Dennis wants to communicate with Maria. They both shared a secret key called S
 - Dennis wants to send an important message that contains the date of an important appoinment. They message is called M.
-- Dennis generates a HMAC which will combine the secret key  S that they both know as well as the message M 
+- Dennis generates a HMAC which will combine the secret key  S that they both know as well as the message  
 - Maria receives the message M with a small note next to it: the HMAC value
 - As Maria knows the secrey key S and the message M she is perfectly able to recreate the HMAC value to verify that it was indeed sent by Dennis and that its content was not modified.
-
 
 
 From a mathematical perspective, in order to build a secure HMAC the following items are needed:
