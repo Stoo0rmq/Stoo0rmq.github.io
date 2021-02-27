@@ -13,16 +13,17 @@ tags:
 ---
 
 # Introduction
-The human being is an animal that has been living in society since the early stages. It is no secret either that the main reason to cooperate and socialize was precisely the survival. It was indeed needed to effectively develop a common basic way of information exchange which we called communication. Communication has been the cornerstone of our progress. Without communication, vacciones ,technology and even mammoth hunting would have not been possible. With the evolution of the human, the needs of the communications increased in the same direction. With the new ways of data exchange a vast amount of new problems were discovered: 
+The human being is an animal that has been living in society since the early stages. It is no secret either that the main reason to cooperate and socialize was precisely the survival. It was indeed needed to effectively develop a common basic way of information exchange which we called communication. Communication has been the cornerstone of our progress. Without communication, vacciones ,technology and even mammoth hunting would have not been possible. With the evolution of the human, the needs of the communications increased in the same direction. With the new ways of data exchange a vast amount of new problems were discovered:
+
 - How could I transfer this information in a safe way?
 - How do I know if the message that I received yesterday is from the original transmitter?
 - What if the message that I am sending does not arrive entirely or if it's get partially?
 
-Do any of these problems ring a bell in your head? Do you realise that these problems have not been deprecated yet and **modern cryptography** still need to liaise with?
+Do any of these problems ring a bell? These exact problems have not been deprecated yet and **modern cryptography** still need to liaise with.
 
 
 # The Wax
-If we particularly thought about the central ideas of the previously mentioned problems, we could easily linked them with our habitual technical slang: it is clear that the issues approached are **authentication** (who are you?) and **integrity** (is this what I should have received?) , core concepts that every sec person should dominate. 
+If we thought about the central ideas of the previously mentioned problems, we could easily link them with our habitual technical slang: it is clear that the issues approached are **authentication** (who are you?) and **integrity** (is this what I should have received?) , core concepts that every sec person should dominate. 
 Bringing back the past, I feel forced to bring you the most interesting example of a solution that *potentially* solved our two problems: Seal Wax Stamps.
 ![Wax stamp on an envelope](https://github.com/Stoo0rmq/Stoo0rmq.github.io/blob/master/images/hmac-love/wax-seal-letter_0.jpg?raw=true)
 
