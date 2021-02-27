@@ -60,28 +60,40 @@ NOTE: Padding is required in hash functions as they divide the data to be hashed
 INTRODUCE HERE FORMULA
 
 
-As it has been seen, the theoretical implementation is not rocket science. In the following sections we will see actual implementations of the HMAC as well as
+As it has been seen, the theoretical implementation is not rocket science. HMAC provides an easy and trustful way of validating authentication and integrity.
+
+# HMAC in the real world
+
+It is no secret that HMAC performs its task very well. This is the reason why you can find an implementation of HMAC in some of the most important protocols/applications used nowadays:
+- TLS therefore any protocol implementing it as HTTPS , SMTPS, SIPS , MySQL ...
+- SSH , SCP and SFTP
+- IPsec (VPNs)
+- Routing protocols as BGP or OSPF
+- JWT (HMAC can be used to signed the token)
+- Google Authenticator
+- Amazon SimpleDB
+- ...
+
+In light of the above, it becomes clear the success of HMAC in modern security. HMAC is available in many different languages, but, as it is natural, it is important to understand the limitations of HMAC:
+
+HMAC can save resources and agilise processes. For example, on web servers where HMAC can be used in order to protect CSRF tokens , sessions,  information or actions that might require a verification of that the specified value was originated from the expected server. By using HMAC we are adding a state into the protected resource. In the case of the CSRF tokens it would not be needed to waste resources by storing CSRF tokens nor veryfing its authenticity, using HMAC a server with the key could quickly check it out. 
+
+In SSH HMAC plays a fundamental role: SSH is an extremely (and useful!) complex and secure protocol where the Secret key is obtained from the symmetrical shared secret. Once the connection is established, the protocol appends on the cleartext part of every block a hmac which will be verified upon arrival. If any of these blocks does not match on the HMAC verification, it will be discarded.
+
+Even though HMAC provides a solid solution, there are security concerns that should take into account before using them:
+    - The authenticity/integrity is safe as long as the secret key is safe: this secret key should be securely generated and distributed to exact number of peers that might need verify the HMAC. A key exchange algorithm might be useful here. If an attacker is able to guess/crack the secret key he will be able to create valid and verified HMAC
+    - The security of HMAC highly relies on the hash function used: if a hash function is vulnerable to collision, the HMAC will inheritates the same vulnerability.
+    - HMAC solves the lenght extension attack that could be performed over a MAC implemented using SHA1 or MD5. A legnth extension attack allows you to create a valid MAC as long as:
+       1. You know the lenght of the secret key S
+       2. You know the message M
+       3. The hash function used is MD5/SHA1/SHA2
+       4. The MAC is the result of   H (Secret|Message)
+   The key core of this attacks is the *internal state* a value that the hash function returns for every block. At the end of its process, the hash function uses this *internal state* against the last  block of data to create the hash, we can interrupt the hash creation process and deceive it in order to add another block. The result? A completely valid HASH will be created. Fortunately, this problem is solved by HMAC as it performs a two iterations hashing applying a padding on each iteration.
+   - HMAC does not implement by itself protection against replay attacks. This can addressed by adding a nonce at the end of the message M
 
 
-# HMAC as a good idea: real world applications
-You probably don't 
+As a colophon I would like to remark the importance of (in my opinion) the use of a properly implemented HMAC values these days. We all use HMACs even when we do not think we are using them! The idea of this post was to let the reader realise how not everything in cryptography has to be hard to digest.
 
-
-HMAC 
-
-
-## SSH
-SSH is an outstanding protocol used worldwide. Incorporates
-
-## TLS 
-
-
-
-
-
-# HMAC as a bad idea
-
-
-TTTTT
+Thanks a lot:)
 
 
