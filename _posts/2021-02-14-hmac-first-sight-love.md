@@ -13,8 +13,6 @@ tags:
 ---
 
 # Introduction
-Atention
-
 The human being is an animal that has been living in society since the early stages. It is no secret either that the main reason to cooperate and socialize was precisely the survival. It was indeed needed to effectively develop a common basic way of information exchange which we called communication. Communication has been the cornerstone of our progress. Without communication, vacciones ,technology and even mammoth hunting would have not been possible. With the evolution of the human, the needs of the communications increased in the same direction. With the new ways of data exchange a vast amount of new problems were discovered: 
 - How could I transfer this information in a safe way?
 - How do I know if the message that I received yesterday is from the original transmitter?
@@ -58,13 +56,13 @@ From a mathematical perspective, in order to build a secure HMAC the following i
 > NOTE: Padding is required in hash functions as they divide the data to be hashed in different blocks of fixed size. In order to keep the consistency it is necessary to "fill" the empty spaces. This is done using padding.
 
 INTRODUCE HERE FORMULA
-$$ S -> Secret Key securely obtained : "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh"
-$$ M -> Message: "See you at 5"
-$$ H() -> Hash function , as SHA256
-$$ P1 -> First padding
-$$ P2 -> Second padding
-$$ HMAC_VALUE = H(P2 ⊕ H((P1 ⊕ S) | M)))
-$$ HMAC_VALUE = SHA256(P2 ⊕ SHA256((P1 ⊕ "See you at 5") | "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh" )))
+$$ S -> Secret Key securely obtained : "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh" $$
+$$ M -> Message: "See you at 5" $$
+$$ H() -> Hash function , as SHA256 $$
+$$ P1 -> First padding $$
+$$ P2 -> Second padding $$
+$$ HMAC_VALUE = H(P2 ⊕ H((P1 ⊕ S) | M))) $$
+$$ HMAC_VALUE = SHA256(P2 ⊕ SHA256((P1 ⊕ "See you at 5") | "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh" ))) $$
 
 As it has been seen, the theoretical implementation is not rocket science. HMAC provides an easy and trustful way of validating authentication and integrity.
 
