@@ -54,11 +54,17 @@ From a mathematical perspective, in order to build a secure HMAC the following i
 - A message M  (the message which will be transmitted)
 - A Hash function H()
 - Two strings, each of those is a different padding string. 
-```
-NOTE: Padding is required in hash functions as they divide the data to be hashed in different blocks of fixed size. In order to keep the consistency it is necessary to "fill" the empty spaces. This is done using padding.
-```
-INTRODUCE HERE FORMULA
 
+> NOTE: Padding is required in hash functions as they divide the data to be hashed in different blocks of fixed size. In order to keep the consistency it is necessary to "fill" the empty spaces. This is done using padding.
+
+INTRODUCE HERE FORMULA
+$$ S -> Secret Key securely obtained : "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh"
+$$ M -> Message: "See you at 5"
+$$ H() -> Hash function , as SHA256
+$$ P1 -> First padding
+$$ P2 -> Second padding
+$$ HMAC_VALUE = H(P2 ⊕ H((P1 ⊕ S) | M)))
+$$ HMAC_VALUE = SHA256(P2 ⊕ SHA256((P1 ⊕ "See you at 5") | "Gg8TEaKIfWfH1VGGvLCgFLIWLOiNszUh" )))
 
 As it has been seen, the theoretical implementation is not rocket science. HMAC provides an easy and trustful way of validating authentication and integrity.
 
