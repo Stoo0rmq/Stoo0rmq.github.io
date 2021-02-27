@@ -73,15 +73,22 @@ HMAC can save resources and agilise processes. For example, on web servers where
 In SSH HMAC plays a fundamental role: SSH is an extremely (and useful!) complex and secure protocol where the Secret key is obtained from the symmetrical shared secret. Once the connection is established, the protocol appends on the cleartext part of every block a hmac which will be verified upon arrival. If any of these blocks does not match on the HMAC verification, it will be discarded.
 
 Even though HMAC provides a solid solution, there are security concerns that should take into account before using them:
-    - The authenticity/integrity is safe as long as the secret key is safe: this secret key should be securely generated and distributed to exact number of peers that might need verify the HMAC. A key exchange algorithm might be useful here. If an attacker is able to guess/crack the secret key he will be able to create valid and verified HMAC
-    - The security of HMAC highly relies on the hash function used: if a hash function is vulnerable to collision, the HMAC will inheritates the same vulnerability.
-    - HMAC solves the lenght extension attack that could be performed over a MAC implemented using SHA1 or MD5. A legnth extension attack allows you to create a valid MAC as long as:
-       1. You know the lenght of the secret key S
-       2. You know the message M
-       3. The hash function used is MD5/SHA1/SHA2
-       4. The MAC is the result of   H (Secret|Message)
-   The key core of this attacks is the *internal state* a value that the hash function returns for every block. At the end of its process, the hash function uses this *internal state* against the last  block of data to create the hash, we can interrupt the hash creation process and deceive it in order to add another block. The result? A completely valid HASH will be created. Fortunately, this problem is solved by HMAC as it performs a two iterations hashing applying a padding on each iteration.
-   - HMAC does not implement by itself protection against replay attacks. This can addressed by adding a nonce at the end of the message M
+- The authenticity/integrity is safe as long as the secret key is safe: this secret key should be securely generated and distributed to exact number of peers that might need verify the HMAC. A key exchange algorithm might be useful here. If an attacker is able to guess/crack the secret key he will be able to create valid and verified HMAC
+- The security of HMAC highly relies on the hash function used: if a hash function is vulnerable to collision, the HMAC will inheritates the same vulnerability.
+- HMAC solves the lenght extension attack that could be performed over a MAC implemented using SHA1 or MD5. A legnth extension attack allows you to create a valid MAC as long as:
+   1. You know the lenght of the secret key S
+   2. You know the message M
+   3. The hash function used is MD5/SHA1/SHA2
+   4. The MAC is the result of   H (Secret|Message)
+```
+The main idea after length extension attacks is the *internal state* a value that the hash function
+returns for every block. At the end of its process, the hash function uses this *internal state* 
+against the last  block of data to create the hash, we can interrupt the hash creation process 
+and deceive it in order to add another block. The result? A completely valid HASH will be 
+created. Fortunately, this problem is solved by HMAC as it performs a two iterations 
+hashing applying a padding on each iteration.
+```
+- HMAC does not implement by itself protection against replay attacks. This can addressed by adding a nonce at the end of the message M
 
 
 As a colophon I would like to remark the importance of (in my opinion) the use of a properly implemented HMAC values these days. We all use HMACs even when we do not think we are using them! The idea of this post was to let the reader realise how not everything in cryptography has to be hard to digest.
