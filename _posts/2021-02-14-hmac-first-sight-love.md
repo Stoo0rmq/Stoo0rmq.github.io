@@ -22,19 +22,20 @@ Do any of these problems ring a bell? These exact problems have not been depreca
 
 
 # The Wax
-If we thought about the central ideas of the previously mentioned problems, we could easily link them with our habitual technical slang: it is clear that the issues approached are **authentication** (who are you?) and **integrity** (is this what I should have received?) , core concepts that every sec person should dominate. 
-Bringing back the past, I feel forced to bring you the most interesting example of a solution that *potentially* solved our two problems: Seal Wax Stamps.
+If we thought about the general ideas of the previously mentioned problems, we could easily link them with our habitual technical slang: it is clear that the issues approached were: **authentication** (who are you?) and **integrity** (is this what I should have received?) , core concepts that every sec person should dominate. 
+Back in the (old) days the ancient people created a solution that *potentially* solved our two problems: Seal Wax Stamps.
+
 ![Wax stamp on an envelope](https://github.com/Stoo0rmq/Stoo0rmq.github.io/blob/master/images/hmac-love/wax-seal-letter_0.jpg?raw=true)
 
-Seal Wax Stamps provided a  valid (at that time) method of authentication, as the stamps contained signs or figures in an unique way in order to represent the sign of a person or a family. The interested person would put his letter within an envelope and would subsequently seal it using the wax protecting the integrity of the letter. Throught this operation, the receiver could be certain of the authenticity of the letter as well as the integrity (if the receiver had found the seal broken, the integrity would then have been compromised and if the stamp was a generic, the receiver could not be either sure about the authorship of the letter.
+Seal Wax Stamps provided a valid (at that time) method of authentication, as the stamps contained signs or figures in an unique way in order to represent the identification of a person or a family. The interested person would put his letter within an envelope and would seal it using the wax and protecting the integrity of the letter. Through this operation, the receiver could be certain of the authenticity of the letter as well as the integrity (if the receiver had found the seal broken, the integrity would then have been compromised and if the stamp was a generic, the receiver could not be either sure about the authorship of the letter.
 
-It is very interesting to observe how security paradigms have evolved, in particular, the same idea that accompanies the wax stamp can be found nowadays in almost every secure protocol,one of the 21st century wax stamp is called HMAC and today we will analyze its importance. 
+It is very interesting to observe how security paradigms have evolved, in particular, the same idea that accompanies the wax stamp can be found nowadays in almost every secure protocol, one of the 21st century wax stamp is called HMAC and today we will analyse its importance. 
 
 # HMAC the new wax stamp
 
 MAC or Message Authentication Code is a small code which let us verify a message, is a way of getting a proof of the authenticity and integrity of a message (like our Wax Stamp). HMAC was the great result of implementing authentication codes using hash functions as MD5 or SHA1.
 
-The idea after HMAC was to provide a robust integrity/authorization mechanisms as it entirely relies in the same security principles found on a regular hash function. A regular use case would look as it follows:
+The idea after HMAC was to provide a robust integrity/authorization mechanism as it entirely relies in the same security principles found on a regular hash function. A regular use case would look as it follows:
 - Dennis wants to communicate with Maria. They both shared a secret key called ^^S^^
 - Dennis wants to send an important message that contains the date of an important appoinment. They message is called ==M==.
 - Dennis generates a HMAC which will combine the secret key  ==S== that they both know as well as the message  
@@ -80,14 +81,9 @@ Even though HMAC provides a solid solution, there are security concerns that sho
    2. You know the message M
    3. The hash function used is MD5/SHA1/SHA2
    4. The MAC is the result of   H (Secret|Message)
-```text
-The main idea after length extension attacks is the *internal state* a value that the hash function
-returns for every block. At the end of its process, the hash function uses this *internal state* 
-against the last  block of data to create the hash, we can interrupt the hash creation process 
-and deceive it in order to add another block. The result? A completely valid HASH will be 
-created. Fortunately, this problem is solved by HMAC as it performs a two iterations 
-hashing applying a padding on each iteration.
-```
+
+>The main idea after length extension attacks is the *internal state* a value that the hash function returns for every block. At the end of its process, the hash function uses this *internal state* against the last  block of data to create the hash, we can interrupt the hash creation process and deceive it in order to add another block. The result? A completely valid HASH will be created. Fortunately, this problem is solved by HMAC as it performs a two iterations hashing applying a padding on each iteration.
+
 - HMAC does not implement by itself protection against replay attacks. This can addressed by adding a nonce at the end of the message M
 
 
