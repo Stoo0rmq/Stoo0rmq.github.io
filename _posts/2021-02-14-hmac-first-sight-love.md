@@ -80,7 +80,7 @@ Even though HMAC provides a solid solution, there are security concerns that sho
    3. The hash function used is MD5/SHA1/SHA2
    4. The MAC is the result of   H (Secret|Message)
 
->The main idea after length extension attacks is the *internal state* a value that the hash function returns for every block. At the end of its process, the hash function uses this *internal state* against the last block of data to create the hash, we can interrupt the hash creation process and deceive it to add another block. The result? A completely valid HASH will be created. Fortunately, this problem is solved by HMAC as it performs two iterations hashing applying padding on each iteration.
+>The main idea after length extension attacks is the *internal state* a value that the hash function returns for every block. At the end of its process, the hash function uses this *internal state* against the last block of data to create the hash, we can interrupt the hash creation process and deceive it to add another block. The result? A completely valid hash will be created. Fortunately, this problem is solved by HMAC as it performs two hashing iterations and also applies padding for each iteration.
 
 - HMAC does not implement by itself a protection against replay attacks. This can be addressed by adding a nonce at the end of the message _M_
 
