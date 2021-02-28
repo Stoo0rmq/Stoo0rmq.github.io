@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      HMAC. Love at first sight
-date:       2021-02-14 17:32:18
-summary:    HMAC and its impact in society.
+date:       2021-02-28 15:32:18
+summary:    HMAC and its use in modern cryptography.
 categories: security
 thumbnail: jekyll
 tags:
