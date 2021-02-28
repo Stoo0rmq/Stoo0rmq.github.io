@@ -80,7 +80,7 @@ Even though HMAC provides a solid solution, there are security concerns that sho
    2. You know the message M
    3. The hash function used is MD5/SHA1/SHA2
    4. The MAC is the result of   H (Secret|Message)
-```
+```text
 The main idea after length extension attacks is the *internal state* a value that the hash function
 returns for every block. At the end of its process, the hash function uses this *internal state* 
 against the last  block of data to create the hash, we can interrupt the hash creation process 
