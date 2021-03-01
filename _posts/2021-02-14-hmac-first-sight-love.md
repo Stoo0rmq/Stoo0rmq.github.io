@@ -67,7 +67,7 @@ It is no secret that HMAC performs its task very well. This is the reason why yo
 
 In light of the above, it becomes clear the success of HMAC in modern security. HMAC is available in many different languages, but, as it is natural, it is important to understand what problems does HMAC mitigate and which ones not:
 
-HMAC can save resources and agile processes. For example, on web servers where HMAC can be used to protect CSRF tokens, sessions,  information, or actions that might require verification that the specified value was originated from the expected server. By using HMAC we are adding a state into the protected resource. In the case of the CSRF tokens, it would not be needed to waste resources by storing CSRF tokens nor verifying their authenticity, using HMAC a server with the key could quickly check it out. 
+HMAC can save resources and make processes quicker. For example, on web servers where HMAC can be used to protect CSRF tokens, sessions,  information, or actions that might require verification that the specified value was originated from the expected server. By using HMAC we are adding a state into the protected resource. In the case of the CSRF tokens, it would not be needed to waste resources by storing CSRF tokens, using HMAC a server with the key could quickly check it out. 
 
 In SSH HMAC plays a fundamental role: SSH is an extremely (and useful!) complex and secure protocol where the Secret key is obtained from the symmetrical shared secret. Once the connection is established, the protocol appends on the clear-text part of every block a HMAC which will be verified upon arrival. If any of these blocks does not match on the HMAC verification, it will be discarded.
 
@@ -86,7 +86,7 @@ Even though HMAC provides a solid solution, there are security concerns that sho
 
 
 # Final words
-As a colophon I would like to remark the importance of (in my opinion) the use of a properly implemented HMAC values these days. We all use HMACs even when we do not think we are using them! The idea of this post was to let the reader realise how not everything in cryptography has to be hard to digest.
+As a colophon I would like to remark the importance of (in my opinion) the use of a properly implemented HMAC value these days. We all use HMACs even when we do not think we are using them! The idea of this post was to let the reader realise how not everything in cryptography has to be hard to digest.
 
 Thanks a lot:)
 
